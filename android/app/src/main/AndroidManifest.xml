@@ -15,8 +15,7 @@
       android:roundIcon="@mipmap/ic"
       android:allowBackup="false"
       android:theme="@style/AppTheme"
-      android:usesCleartextTraffic="true"
-      android:networkSecurityConfig="@xml/network_security_config"
+      android:requestLegacyExternalStorage="true"
     >
       <meta-data
 	     android:name="com.google.android.geo.API_KEY"

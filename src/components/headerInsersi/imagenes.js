@@ -139,7 +139,6 @@ export default class Imagenes extends Component {
     }
 
     guardarImagenes(name){
-
       baseUrl = scom.url;
       baseUrl+="/files";
 

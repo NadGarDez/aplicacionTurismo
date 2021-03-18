@@ -28,7 +28,12 @@ export default class Categoria extends Component {
       this.buscar();
   }
   action1(){
-    this.props.navigation.navigate("Menu")
+    if(this.props.variables.tokenLogin.value!==""){
+      this.props.navigation.navigate("Menu");
+    }
+    else{
+      this.props.navigation.navigate("MLogin");
+    }
   }
 
   action2(){

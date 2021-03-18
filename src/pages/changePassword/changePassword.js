@@ -53,7 +53,7 @@ export default class changePassword extends Component {
     a = new Sfetch(baseUrl);
 
     try{
-      b = await a.postJson(obj);
+      b = await a.postJson(obj,this.props.variables.tokenLogin.value);
       console.log(b)
       this.handleResponse(b);
 

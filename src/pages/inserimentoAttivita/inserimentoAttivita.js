@@ -119,7 +119,7 @@ export default class InserimentoAttivita extends Component {
 
 
     try{
-      b = await a.getJson(obj,token.value);
+      b = await a.getJson(obj,this.props.variables.tokenLogin.value);
       console.log(b.links[1].href)
       this.state.urlAprove = b.links[1].href;
       this.forceUpdate()
@@ -167,7 +167,7 @@ export default class InserimentoAttivita extends Component {
       a = new Sfetch(baseUrl);
 
       try{
-        b = await a.postJson(objE);
+        b = await a.postJson(objE,this.props.variables.tokenLogin.value);
         console.log(b)
         this.handleResponse(b);
 
