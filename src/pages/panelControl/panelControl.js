@@ -231,40 +231,49 @@ export default class Recomendaciones extends Component {
   }
 
   handleResponse(array){
-    baseUrl = scom.url;
-    baseUrl+="/files/"
-    array.forEach(
-      (item,index,este)=>{
-
-        array[index].imagine= array[index].imagine.map(
-          (item,index)=>{
-
-              if(item == ""){
-
-                  return "https://lh3.googleusercontent.com/proxy/O-pQRoEXEGDY-PYA7jgqLqxT7bR0jdN_q3PT1h0RGR_cqm4-OLcN0sAc7EYENKKSnkG_7dv947IUmcoNENz5pzoLABFGcRWkMEaLR4nkZ9HGgFO4J9gBBaFGkWxCKryyvLidpRbTnFKAcWrsYO9yJhQOq_kT7ClTnabjvhdMAgFD4zWsA4YtlBXGiJNEe6aaV5CSOWj59lziAZwqVGPPo83Cv0bXx30YYy0NkqrV0BfNqFYa5zdD-2pZvtYW49-wvxOuMKwPO0aaJLwB_zQQ3HF0LIzdQ2R86Z3M38YDY47r1xIPfZlO2OdT0ckrCBOBBab7i6CWn2WXcwQcQmVPDXN48ajWvcU6ZyB0UFMZwFrsFhHHWBVcX2TTtCoa7eTihCuGdi0P_ev0gwLEaTufMEMNz44xNQeKAQwH5soFN4ON3XGJ22UZECjlaR6O26lqtaQJ4iGnEx8hF4f3JKqUW-GjvKuaXk4UWvPq62g7s4It_N4cgOg8OPlUHeiFiUZyK0ULgviJU92H8x4fJjDUj2sJ_aQBCEkwC3J0rhfmg5HTHomIhRBDdjvOLrZevlg3NbN0k64"
+  //  Alert.alert(JSON.stringify(array.length))
 
 
-              }
-              else{
-                return baseUrl+item;
-              }
+    if(array.length>0){
+      baseUrl = scom.url;
+      baseUrl+="/files/"
+      array.forEach(
+        (item,index,este)=>{
 
-          }
-        )
+          array[index].imagine= array[index].imagine.map(
+            (item,index)=>{
+
+                if(item == ""){
+
+                    return "https://lh3.googleusercontent.com/proxy/O-pQRoEXEGDY-PYA7jgqLqxT7bR0jdN_q3PT1h0RGR_cqm4-OLcN0sAc7EYENKKSnkG_7dv947IUmcoNENz5pzoLABFGcRWkMEaLR4nkZ9HGgFO4J9gBBaFGkWxCKryyvLidpRbTnFKAcWrsYO9yJhQOq_kT7ClTnabjvhdMAgFD4zWsA4YtlBXGiJNEe6aaV5CSOWj59lziAZwqVGPPo83Cv0bXx30YYy0NkqrV0BfNqFYa5zdD-2pZvtYW49-wvxOuMKwPO0aaJLwB_zQQ3HF0LIzdQ2R86Z3M38YDY47r1xIPfZlO2OdT0ckrCBOBBab7i6CWn2WXcwQcQmVPDXN48ajWvcU6ZyB0UFMZwFrsFhHHWBVcX2TTtCoa7eTihCuGdi0P_ev0gwLEaTufMEMNz44xNQeKAQwH5soFN4ON3XGJ22UZECjlaR6O26lqtaQJ4iGnEx8hF4f3JKqUW-GjvKuaXk4UWvPq62g7s4It_N4cgOg8OPlUHeiFiUZyK0ULgviJU92H8x4fJjDUj2sJ_aQBCEkwC3J0rhfmg5HTHomIhRBDdjvOLrZevlg3NbN0k64"
+
+
+                }
+                else{
+                  return baseUrl+item;
+                }
+
+            }
+          )
 
 
 
-      //  array[index].social = JSON.parse(array[index].social)
+        //  array[index].social = JSON.parse(array[index].social)
 
-      }
-    )
+        }
+      )
 
-    this.state.dataRender = array.map(
-      (item)=>{
-        return {key:item}
-      }
-    )
-    this.forceUpdate()
+      this.state.dataRender = array.map(
+        (item)=>{
+          return {key:item}
+        }
+      )
+      this.forceUpdate()
+    }
+    else{
+      this.state.dataRender=null
+      this.forceUpdate()
+    }
   //  console.log(this.state.dataRender)
 
 
@@ -331,15 +340,21 @@ export default class Recomendaciones extends Component {
 
   render() {
     let l
-    if(this.state.dataRender==""){
-        l=<ActivityIndicator/>
-    }
-    else{
-      l = <FlatList
-        data={this.state.dataRender}
-        renderItem={({item})=><Establecimiento datos={item.key} buscar={this.buscar} navigation={this.props.navigation} admin={this.props.variables.user.value.admin} activar={this.activar} desactivar={this.desactivar} enviar={this.enviar} changeModalPaypal={this.changeModalPaypal2} preEnviar={this.preEnviar} urlAprove={this.state.urlAprove} reload={this.reload}/>}
 
-      />
+    if(this.state.dataRender==null){
+        l=<View style={{marginTop:5, width:"100%"}}><Text style={{textAlign:"center"}}>Aucune activié</Text></View>
+    }else{
+      if(this.state.dataRender==""){
+          l=<ActivityIndicator/>
+      }
+      else{
+        l = <FlatList
+          data={this.state.dataRender}
+          renderItem={({item})=><Establecimiento datos={item.key} buscar={this.buscar} navigation={this.props.navigation} admin={this.props.variables.user.value.admin} activar={this.activar} desactivar={this.desactivar} enviar={this.enviar} changeModalPaypal={this.changeModalPaypal2} preEnviar={this.preEnviar} urlAprove={this.state.urlAprove} reload={this.reload}/>}
+
+        />
+      }
+
     }
 
     objDat={

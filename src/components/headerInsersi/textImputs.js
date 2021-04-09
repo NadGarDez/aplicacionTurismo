@@ -197,6 +197,7 @@ export default class TextInputs extends Component {
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
 
            <TextInput
+             maxLength={50}
              style={{ height: "100%", width:"100%", backgroundColor:"white", borderStyle:"solid",borderColor: color1, borderWidth:1}}
              onChangeText={
                (text)=>{
@@ -252,6 +253,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
           <TextInput
+            maxLength={250}
             style={{ height: "100%", width:"100%", backgroundColor:"white",borderColor: color2, borderStyle:"solid", borderWidth:1}}
             value={a[0]}
             onChangeText={
@@ -305,6 +307,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
           <TextInput
+            maxLength={250}
             style={{ height: "100%", width:"100%", backgroundColor:"white", borderColor:color3, borderStyle:"solid", borderWidth:1}}
             value={this.props.dataCitta}
             onChangeText={
@@ -358,7 +361,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
             <TextInput
-             keyboardType='numeric'
+             maxLength={15}
              style={{ height: "100%", width:"100%", backgroundColor:"white", borderColor: color4, borderStyle:"solid", borderWidth:1}}
              onChangeText={
                (text)=>{
@@ -411,6 +414,7 @@ export default class TextInputs extends Component {
           <View style={misEstilos.inserimentoAttivita_rettangolo42}>
             <TextInput
               multiline
+              maxLength={150}
               numberOfLines={10}
               style={{ height: "100%", width:"100%", backgroundColor:"white", borderColor:color5, borderStyle:"solid", borderWidth:1}}
               onChangeText={

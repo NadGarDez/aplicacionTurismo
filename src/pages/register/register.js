@@ -35,6 +35,9 @@ export default class Register extends Component {
 
       this.alto = Dimensions.get('window').height,
       this.ancho = Dimensions.get('window').width,
+      this.altoComponente = 40 * this.alto;
+      this.altoComponente = this.altoComponente / 100;
+
       console.log(this.ancho)
       this.anchoC = 45 * this.ancho;
       this.anchoC = this.anchoC / 100;
@@ -261,19 +264,21 @@ export default class Register extends Component {
 
           </View>
         </View>
-        <View style={{width:"100%", height:"40%"}}>
+        <View style={{width:"100%", height:this.altoComponente}}>
           <View data-layer="16a0e816-7c20-4c60-8f73-fcaeaf03bf47" style={styles.register_rettangolo14}>
             <View style={{width:"100%", height:"50%", display:"flex", flexDirection:"row"}}>
-              <View style={{width:"50%", height:"100%",display:"flex",alignItems:"center", justifyContent:"center", flexDirection:"row"}}>
-                <ReactImage data-layer="87167693-f1f7-45ab-8177-5a62928e8441" source={require('./assets/logo.png')} style={{width:160,height:80,resizeMode:"stretch"}} />
+              <View style={{width:"100%", height:"100%",display:"flex",alignItems:"center", justifyContent:"center", flexDirection:"row"}}>
+                <ReactImage data-layer="87167693-f1f7-45ab-8177-5a62928e8441" source={require('./assets/logo.png')} style={{width:200,height:100,resizeMode:"stretch"}} />
               </View>
+              {/*
               <View style={{width:"50%", height:"100%",display:"flex",alignItems:"center", justifyContent:"center",flexDirection:"row"}}>
                 <Image source={require("~/pages/register/assets/adveraLogo.png")}  style={{width:this.anchoC,height:this.imgH,resizeMode:"stretch"}}/>
               </View>
+            */}
             </View>
             <View style={{width:"100%", height:"50%", display:"flex", flexDirection:"row", justifyContent:"center"}}>
 
-            <View style={{width:"100%", height:"40%", display:"flex", flexDirection:"row", justifyContent:"center"}}>
+            <View style={{width:"100%", height:"40%", display:"flex", flexDirection:"row", justifyContent:"center",alignItems:"center"}}>
               <Image source={require("~/pages/register/assets/costaLogo2.png")}  style={{width:200,height:25,resizeMode:"stretch"}}/>
             </View>
             </View>
@@ -366,7 +371,7 @@ export default class Register extends Component {
       <TouchableOpacity style={{width:"33%", height:"100%",display:"flex", alignItems:"center", justifyContent:"center"}} underlayColor="white"
         onPress={
           ()=>{
-            if(this.props.variables.tokenLogin.value!==""){
+            if(this.props.variables.tokenLogin.value!=="" && this.props.variables.tokenLogin.value!==null){
               this.props.navigation.navigate("Menu");
             }
             else{
@@ -476,7 +481,7 @@ const styles = StyleSheet.create({
     "backgroundColor": "#F9F9F9",
 
     "width": "100%",
-    "height": 700,
+    "height": Dimensions.get("window").height,
   },
   "register_rettangolo14": {
     "opacity": 1,

@@ -116,7 +116,7 @@ export default class MenuLogin extends Component {
     }
 
     else{
-
+      this.props.navigation.navigate("Home");
     }
 
   }

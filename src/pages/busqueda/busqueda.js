@@ -67,7 +67,7 @@ export default class Recomendaciones extends Component {
   }
 
   action1(){
-    if(this.props.variables.tokenLogin.value!==""){
+    if(this.props.variables.tokenLogin.value!=="" && this.props.variables.tokenLogin.value!==null){
       this.props.navigation.navigate("Menu");
     }
     else{

@@ -3,7 +3,9 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import {StyleSheet, Text, View, TextInput, FlatList, Picker, ScrollView, TouchableHighlight, ImageBackground, Dimensions, Image} from 'react-native';
 const GooglePlacesInput = (props) => {
   const ref = useRef();
-
+  useEffect(() => {
+   ref.current?.focus();
+  }, []);
   return (
 
       <GooglePlacesAutocomplete
@@ -23,7 +25,7 @@ const GooglePlacesInput = (props) => {
 
         }}
         query={{
-          key: 'AIzaSyBv2vDbJlYGLqHoa0NC-sg1dVkfZJ0AXaQ',
+          key: 'AIzaSyAbKkSvFU5HqUOlDyKd4QZWs-PwFUovizQ',
           language: 'en',
           type:"address"
         }}

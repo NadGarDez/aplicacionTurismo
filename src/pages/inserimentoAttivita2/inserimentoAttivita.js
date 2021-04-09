@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
-import {StyleSheet, Text, View, TextInput, FlatList, Picker,Modal, Alert, ScrollView, TouchableHighlight,TouchableOpacity,Button} from 'react-native';
+import {Dimensions,StyleSheet, Text, View, TextInput, FlatList, Picker,Modal, Alert, ScrollView, TouchableHighlight,TouchableOpacity,Button} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import Svg, {Defs, Pattern} from 'react-native-svg';
 import {Path as SvgPath} from 'react-native-svg';
@@ -20,7 +20,7 @@ import Paypal from "./../webViewPayPal/WebViewPayPal.js";
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Feather';
 import BottonMenu from "../../components/menus/bottonMenu.js";
-
+const  alto = Dimensions.get("window").height*4;
 const scom = require("../../services/url.js");
 
 export default class InserimentoAttivita extends Component {
@@ -212,7 +212,7 @@ export default class InserimentoAttivita extends Component {
         b = await a.postJson(up,this.props.variables.tokenLogin.value);
         console.log(b)
         if(b.resultado==1){
-          Alert.alert("Editado correctamente")
+          Alert.alert("Modifié correctement")
           this.props.navigation.navigate("Panel",{reload:true})
         }
 
@@ -542,7 +542,7 @@ const styles = StyleSheet.create({
 
 
     "width": "100%",
-    "height": 2615,
+    "height": alto,
 
   },
   "inserimentoAttivita_rettangolo4": {

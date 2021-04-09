@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
-import {StyleSheet, Text, View, TextInput, FlatList, Picker,Modal, Alert, ScrollView, TouchableHighlight,TouchableOpacity,Button} from 'react-native';
+import {Dimensions,StyleSheet, Text, View, TextInput, FlatList, Picker,Modal, Alert, ScrollView, TouchableHighlight,TouchableOpacity,Button} from 'react-native';
 import {Image as ReactImage} from 'react-native';
 import Svg, {Defs, Pattern} from 'react-native-svg';
 import {Path as SvgPath} from 'react-native-svg';
@@ -20,7 +20,7 @@ import Paypal from "./../webViewPayPal/WebViewPayPal.js";
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Feather';
 import BottonMenu from "../../components/menus/bottonMenu.js";
-
+const alto= Dimensions.get("window").height*4;
 const scom = require("../../services/url.js");
 
 export default class InserimentoAttivita extends Component {
@@ -51,7 +51,7 @@ export default class InserimentoAttivita extends Component {
         imagine:[],
         social:"",
         pagado:false,
-        fechaPago: "",
+        fechaPago:new Date,// "",
         vencimiento:new Date(v),
         idUsuario:this.props.variables.user.value.id,
         modalVisible:false,
@@ -106,10 +106,14 @@ export default class InserimentoAttivita extends Component {
 
   handleResponse(obj){
 
-    if(obj.estatus == "exitoso"){
-        Alert.alert("Activité saisie correctement")
-        this.props.navigation.navigate("Menu");
-    }
+
+
+      if(obj.estatus == "exitoso"){
+          Alert.alert("Activité saisie correctement")
+          this.props.navigation.navigate("Menu");
+      }
+
+
 
   }
   async preEnviar(){
@@ -458,7 +462,7 @@ const styles = StyleSheet.create({
 
 
     "width": "100%",
-    "height": 2980,
+    "height": alto,
 
   },
   "inserimentoAttivita_rettangolo4": {

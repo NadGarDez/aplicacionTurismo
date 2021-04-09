@@ -23,7 +23,7 @@ export default class Home extends Component {
         textDove:"",
         selectCategoria:"todas",
         tercero:"",
-        imagenes:[require("./assets/22.png"),require("./assets/1.jpg"),require("./assets/3..jpg"),require("./assets/4.jpeg"),require("./assets/2.jpg")]
+        imagenes:[require("./assets/22.png"),require("./assets/ss.png"),require("./assets/3..jpg"),require("./assets/4.jpeg"),require("./assets/2.jpg")]
       };
       this.getVariable= this.getVariable.bind(this);
       this.handleTextInput= this.handleTextInput.bind(this);
@@ -108,7 +108,7 @@ export default class Home extends Component {
           tit:"Degustare",
           subtit:"Hai cercato",
           imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Ne4fxlOxhGDTycjkVZd_4KxtraQ0WP4DoQ&usqp=CAU",
-          imagen2: require("./assets/1.jpg")
+          imagen2: require("./assets/ss.png")
         }
 
         objDat3={
@@ -126,7 +126,7 @@ export default class Home extends Component {
         }
 
         objDat5={
-          tit:"Rilassarsi",
+          tit:"Visitare",
           subtit:"Hai cercato",
           imagen:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Ne4fxlOxhGDTycjkVZd_4KxtraQ0WP4DoQ&usqp=CAU",
           imagen2: require("./assets/2.jpg")
@@ -241,7 +241,7 @@ export default class Home extends Component {
 
                     onPress={()=>this.props.navigation.navigate("Categoria", {objDat1,objDat2,categoria:"1"})}
                   >
-                    <ImageBackground source={require('./assets/1.jpg')} style={{width:'100%',height:'100%',justifyContent:"center",textAlign:'center'}}>
+                    <ImageBackground source={require('./assets/ss.png')} style={{width:'100%',height:'100%',justifyContent:"center",textAlign:'center'}}>
 
                       <Text data-layer="db3ab708-4e1d-43f2-85fb-d8e28d7bdb7d" style={styles.home_manger}>Degustare</Text>
                       {/*<Text data-layer="99c36fc2-aae2-4e97-afea-2c10eb4ef680" style={styles.home_etDeguster}>e degusta</Text>*/}
@@ -556,7 +556,7 @@ de Nice La capitale de la gastronomie, à ....</Text>
       <TouchableOpacity style={{width:"33%", height:"100%",display:"flex", alignItems:"center", justifyContent:"center"}} underlayColor="white"
         onPress={
           ()=>{
-            if(this.props.variables.tokenLogin.value!==""){
+            if(this.props.variables.tokenLogin.value!=="" && this.props.variables.tokenLogin.value!==null){
               this.props.navigation.navigate("Menu");
             }
             else{

@@ -218,6 +218,7 @@ export default class TextInputs extends Component {
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
 
            <TextInput
+             maxLength={50}
              style={{ height: "100%", width:"100%", backgroundColor:"white", borderStyle:"solid",borderColor: color1, borderWidth:1}}
              value={this.state.inputs.input1.currentValue}
              onChangeText={
@@ -238,6 +239,11 @@ export default class TextInputs extends Component {
                     this.state.inputs.input1.message = "questo ingresso non può essere vuoto"
                     this.forceUpdate();
 
+                 }
+                 else{
+                   this.state.inputs.input1.message = ""
+                   this.state.inputs.input1.validateStatus = "default";
+                    this.forceUpdate();
                  }
                 this.enviarValidacion()
                }
@@ -269,6 +275,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
           <TextInput
+            maxLength={250}
             style={{ height: "100%", width:"100%", backgroundColor:"white",borderColor: color2, borderStyle:"solid", borderWidth:1}}
             value={this.props.dataIndirizo != null ? this.props.dataIndirizo : this.state.inputs.input2.currentValue}
             onChangeText={
@@ -300,6 +307,11 @@ export default class TextInputs extends Component {
                    this.state.inputs.input2.message = "questo ingresso non può essere vuoto"
                    this.forceUpdate();
                 }
+                else{
+                  this.state.inputs.input2.message = ""
+                  this.state.inputs.input2.validateStatus = "default";
+                   this.forceUpdate();
+                }
                   this.enviarValidacion()
               }
             }
@@ -316,6 +328,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
           <TextInput
+            maxLength={250}
             style={{ height: "100%", width:"100%", backgroundColor:"white", borderColor:color3, borderStyle:"solid", borderWidth:1}}
             value={this.props.dataCitta != null ? this.props.dataCitta : this.state.inputs.input3.currentValue}
             onChangeText={
@@ -348,6 +361,11 @@ export default class TextInputs extends Component {
                    this.forceUpdate();
 
                 }
+                else{
+                  this.state.inputs.input3.message = ""
+                  this.state.inputs.input3.validateStatus = "default";
+                   this.forceUpdate();
+                }
                 this.enviarValidacion()
               }
             }
@@ -364,6 +382,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo4}>
             <TextInput
+            maxLength={15}
             value={this.state.inputs.input4.currentValue}
              style={{ height: "100%", width:"100%", backgroundColor:"white", borderColor: color4, borderStyle:"solid", borderWidth:1}}
              onChangeText={
@@ -381,6 +400,11 @@ export default class TextInputs extends Component {
                     this.state.inputs.input4.message = "questo ingresso non può essere vuoto"
                     this.forceUpdate();
 
+                 }
+                 else{
+                   this.state.inputs.input4.message = ""
+                   this.state.inputs.input4.validateStatus = "default";
+                    this.forceUpdate();
                  }
 
                    this.enviarValidacion()
@@ -409,6 +433,7 @@ export default class TextInputs extends Component {
 
           <View style={misEstilos.inserimentoAttivita_rettangolo42}>
             <TextInput
+            maxLength={150}
             value={this.state.inputs.input5.currentValue}
               multiline
               numberOfLines={10}
@@ -430,6 +455,11 @@ export default class TextInputs extends Component {
                      this.state.inputs.input5.message = "questo ingresso non può essere vuoto"
                      this.forceUpdate();
 
+                  }
+                  else{
+                    this.state.inputs.input5.message = ""
+                    this.state.inputs.input5.validateStatus = "default";
+                     this.forceUpdate();
                   }
                     this.enviarValidacion()
                 }
